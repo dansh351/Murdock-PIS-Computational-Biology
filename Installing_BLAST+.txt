@@ -1,0 +1,42 @@
+# Install the package from this site: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST
+
+#Move the downloaded file to the Home directory and extract
+
+mv ncbi-blast-2.12.0+.tar.gz
+tar ncbi-blast-2.12.0+.tar.gz
+rm ncbi-blast-2.12.0+.tar.gz
+
+
+#Add the executables to the PATH
+nano ~/.bashrc
+
+#Scroll to the end and type the following:
+
+export PATH=/home/dansh/ncbi-blast-2.12.0+:$PATH
+                    #Make sure you change the username to your own
+ctrl-O #hit enter
+ctrl-X
+
+source .bashrc
+
+
+#Download an NCBI Database to use.  Keep in mind these can get quite large.  Using an external hard drive may be necessary.
+#First, go to the directory that you would like to put the database
+
+update_blastdb.pl --showall
+#Identify the database you want to use.  The nt database is all of the nucleotides stored on NCBI
+update_blastdb.pl --decompress <db of your choice>
+
+#Put the database into the PATH so BLAST knows where it is
+nano ~/.bashrc
+
+#Scroll to the end and type the following:
+
+export BLASTDB=<path to wherever you put the db>
+
+ctrl-O #hit enter
+ctrl-X
+
+source .bashrc
+
+You're ready to run!

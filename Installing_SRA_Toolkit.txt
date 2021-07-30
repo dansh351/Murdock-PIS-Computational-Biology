@@ -1,0 +1,32 @@
+#Download the tool kit from: https://www.ncbi.nlm.nih.gov/Traces/sra/?view=software
+
+#Move the downloaded file to the Home directory and extract
+
+mv sratoolkit.2.11.0-centos_linux64.tar.gz ..
+cd
+tar xvf sratoolkit.2.11.0-centos_linux64.tar.gz
+rm sratoolkit.2.11.0-centos_linux64.tar.gz
+
+#Configure the SRA toolkit using their interactive configuration.
+
+cd /sratoolkit.2.11.0-centos_linux64/bin
+./vdb-config --interactive
+
+#You can follow the directions here: https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration
+#Add SRA toolkit to PATH
+
+cd
+nano ~/.bashrc
+
+#Scroll to the end and type the following:
+export PATH=/home/dansh/sratoolkit.2.11.0-centos_linux64/bin:$PATH
+
+                    #Make sure you change the username to your own
+ctrl-O #hit enter
+ctrl-X
+
+source .bashrc
+
+#Use prefetch to download any accession number you find on the SRA Database
+
+prefetch <accession number>
