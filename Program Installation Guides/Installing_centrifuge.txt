@@ -1,0 +1,47 @@
+#Download Centrifuge
+
+Download sourcecode.tar.gz from https://github.com/DaehwanKimLab/centrifuge/releases
+
+#Extract downloaded file and move to the home directory
+
+tar zxvf centrifuge-1.0.4-beta.tar.gz
+mv centrifuge-1.0.4-beta ..
+cd
+
+#Prepare centrifuge executables to run
+cd centrifuge-1.0.4-beta
+make
+
+
+#After make has finished, you will need to add the Centrifuge directory to the PATH variable to make it executable from anywhere
+
+nano ~/.bashrc
+
+#Scroll to the end and type the following:
+
+export PATH=/home/dansh/centrifuge-1.0.4-beta:$PATH
+                    #Make sure you change the username to your own
+ctrl-O #hit enter
+ctrl-X
+
+source .bashrc
+
+
+#Centrifuge uses an index of known sequences to identify unknowns.  You can download it here:
+https://genome-idx.s3.amazonaws.com/centrifuge/p%2Bh%2Bv.tar.gz
+
+#You can keep this in the "Downloads" directory, or move it to the "centrifuge-1.0.4-beta" directory, or wherever it makes sense. I actually keep mine on an external hard drive so I don't take up too much space on my computer's hard drive
+#For this example, we will move it to a specified directory in the the centrifuge-1.0.4-beta directory
+
+mkdir ~/centrifuge-1.0.4-beta/Index
+mv ~/Downloads/p+h+v.tar.gz ~/centrifuge-1.0.4-beta
+cd ~/centrifuge-1.0.4-beta
+tar xvf p+h+v.tar.gz
+
+#Once that has completed (it takes a minute), check to make sure the index files were extracted to the correct location and then remove the tar file to save hard drive space
+
+rm p+h+v.tar.gz
+
+#Should work!  Try it out by typing: 
+
+centrifuge
