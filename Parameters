@@ -1,0 +1,3 @@
+export PATH=/usr/lib/centrifuge-1.0.4-beta:$PATH
+export CENTRIFUGE_INDEXES=/usr/lib/centrifuge-1.0.4-beta/Index
+export PATH=usr/lib/sratoolkit.2.11.0-centos_linux64/bin:$PATH
